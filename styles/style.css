@@ -1,0 +1,387 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Word break for all paragraphs */
+p { word-wrap: break-word;}
+
+/* Onloading */
+body{
+    display: none;
+    animation: over;
+    animation-duration: 0.1s;
+    animation-delay: 5s;
+    animation-fill-mode: forwards;
+    overflow-y: hidden;
+}
+
+@keyframes over{
+    from{
+        overflow-y: hidden;
+    }
+    to{
+        overflow-y: auto;
+    }
+}
+
+
+/* Header */
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+
+nav{
+    background: black;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav a{
+    padding: 0.5em 1em;
+    font-size: 1em;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s linear;
+}
+
+
+
+nav a:hover{
+    color: black;
+    background-color: #F44336;
+}
+
+#logo{
+    position: absolute;
+    left: 0;
+    padding: .2em;
+    font-size: 2em;
+    animation: colors 10s linear infinite;
+}
+
+@keyframes colors{
+    0%{
+        color: aquamarine;
+    }
+    20%{
+        color: yellow;
+    }
+    30%{
+        color: crimson;
+    }
+    40%{
+        color: goldenrod;
+    }
+    60%{
+        color: darkcyan;
+    }
+    80%{
+        color: magenta;
+    }
+    100%{
+        color: mediumspringgreen;
+    }
+}
+
+/* Responsive header */
+@media screen and (max-width: 601px){
+    header{
+        position: relative;
+    }
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+    nav a{
+        width: 95vw;
+    }
+    #logo{
+        position: relative;
+        font-size: 2em;
+    }
+}
+
+/* Distance from top due to fixed menu */
+.section1{
+    position: relative;
+    padding-top: 2.3em;
+}
+
+/* Canvas for particles */
+.section1{
+    height: 96vh;
+    width: 100%;
+    background: #F44336;
+}
+
+#section2 a{
+    display: inline;
+    text-decoration: none;
+    color:#fff;
+    font-style: italic;
+}
+
+/* Positioning h1, hr and button*/
+.wrap{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.wrap h1{
+    color: black;
+    font-size: 4em;
+    font-family: monospace;
+    width: 0ch;
+    margin: auto;
+    margin-bottom: .1em;
+}
+.wrap hr{
+    border: 2px solid black;
+    width: 26ch;
+    margin: auto;
+    border-radius: 10px;
+}
+
+#getstarted{
+    color: black;
+    font-size: 1.5em;
+    text-decoration: none;
+    border: 3px solid black;
+    border-radius: 50%;
+    display: block;
+    margin: 2em auto;
+    padding: .2em;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    vertical-align: 50%;
+    background-color: rgba(244, 67, 54, .4);
+    transition: .5s linear;
+    animation-delay: 4.5s;
+}
+
+
+#getstarted:hover{
+    background-color: black;
+    color: #F44336;
+}
+
+/* Responsive typef */
+@media screen and (max-width: 601px){
+    #section1{
+        height: 80vh;
+    }
+    .wrap h1{
+        font-size: 3.2em;
+        padding: 0 .2em;
+    }
+}
+
+/* Typing effect animation */
+.typef{
+    border-right: 4px solid black;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3s steps(13) forwards, blink 1s linear infinite forwards;
+    animation-delay: 1s;
+}
+
+@keyframes typing{
+    from{
+        width: 0ch;
+    }
+    to{
+        width: 13ch;
+    }
+}
+
+@keyframes blink{
+    from{
+        border-right-color: transparent;
+    }
+    to{
+        border-right-color: black;
+    }
+}
+
+/* Section 2 */
+#section2{
+    width: 100%;
+    color: white;
+    background-color: firebrick;
+}
+
+
+/* Section 3 */
+#section3{
+    width: 100%;
+    color: white;
+    background-color: black;
+}
+
+#section2:hover, #section3:hover{
+    opacity: .8;
+}
+
+/* Styling section divs */
+.secdiv{
+    width: 50%;
+    margin: auto;
+    padding: 1em;
+}
+
+#code{
+    font-size: 4em;
+    display: block;
+    text-align: center;
+    padding-bottom: .5rem;
+}
+
+/* Split screen */
+#section4{
+    position: relative;
+    width: 100%;
+    height: 97vh;
+}
+
+.split{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Common styling */
+.split .wraper{
+    position: absolute;
+    color: white;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 1em;
+}
+
+.split h1{
+    margin-bottom: 1em;
+    font-size: 3em;
+}
+
+/* Left side */
+.split.left{
+    left: 0;
+    background-image: url("../imgs/design.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.split.left::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(66, 66, 66, 0.8);
+}
+
+/* Right side */
+.split.right{
+    right: 0;
+    background-image: url("../imgs/programming.jpeg");
+    background-position: center;
+    background-size: cover;
+}
+
+.split.right::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(43, 43, 43, 0.8);
+}
+
+/* Split hover effect classes */
+.split.left, .split.right, .split.right:before, .split.left:before {
+    transition: 1.5s all ease-in-out;
+  }
+
+
+/* Left hover */
+.hover-left .left{
+    width: 70%;
+}
+
+.hover-left .right{
+    width: 30%;
+}
+
+.hover-left .right:before{
+    z-index: 1;
+}
+
+/* Right hover */
+.hover-right .left{
+    width: 30%;
+}
+
+.hover-right .right{
+    width: 70%;
+}
+
+.hover-right .left:before{
+    z-index: 1;
+}
+
+.bullet{
+    display: none;
+}
+
+
+/* Convert split to slideshow on mobile phones */
+@media screen and (max-width: 730px) {
+    .split{
+        position: relative;
+        width: 100%;
+    }
+
+    .bullets{
+        position: absolute;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 80%;
+        z-index: 1;
+    }
+
+    .bullet{
+        display: inline-block;
+        cursor:pointer;
+        height: 25px;
+        width: 25px;
+        margin: 6px 5px;
+        border-radius: 50%;
+        background-color: rgba(225, 225, 225, .5);
+        transition: background-color 0.6s ease;
+    }
+
+    .bullet-hover{
+        background-color: rgba(225, 225, 225, 1);
+    }
+}
+
+/*Footer*/
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    color: white;
+    background-color: black;
+}
